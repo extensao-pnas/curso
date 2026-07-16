@@ -30,6 +30,9 @@ export interface Lesson {
   topic: string;
   professor: string;
   institution: string;
+  lattes?: string;
+  cienciaVitae?: string;
+  linkedin?: string;
 }
 
 export const courseData: CourseData = {
@@ -111,6 +114,7 @@ export const courseData: CourseData = {
             "Uma análise comparada da Política de Assistência Social no Brasil e Ação Social em Portugal",
           professor: "Dra. Tatiana Lúcia Valduga",
           institution: "CARE/IPP em Portugal",
+          cienciaVitae: "https://www.cienciavitae.pt/portal/0E17-AD3B-93BB",
         },
         {
           date: "10/09/2026",
@@ -146,6 +150,7 @@ export const courseData: CourseData = {
           topic: "Indicadores Sociais e interpretação de dados sociais",
           professor: "Ms. Stephanie de Azevedo Barreto",
           institution: "SEDSODH RJ",
+          linkedin: "https://www.linkedin.com/in/stephanie-barreto-85085a119/",
         },
         {
           date: "08/10/2026",
@@ -153,13 +158,15 @@ export const courseData: CourseData = {
             "O Cadastro Único como base de dados para análise social",
           professor: "Ms. Stephanie de Azevedo Barreto",
           institution: "SEDSODH RJ",
+          linkedin: "https://www.linkedin.com/in/stephanie-barreto-85085a119/",
         },
         {
           date: "15/10/2026",
           topic: "Laboratório de dados do Cadastro Único",
           professor: "Junier Goulart",
-          institution:
-            "SEDSODH/RJ",
+          institution: "SEDSODH/RJ",
+          lattes: "http://lattes.cnpq.br/8140596402232024",
+          linkedin: "https://www.linkedin.com/in/junier-goulart",
         },
       ],
     },
