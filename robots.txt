@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://extensao-pnas.github.io/curso/sitemap-index.xml
