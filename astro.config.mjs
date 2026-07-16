@@ -5,8 +5,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://jcgoulart.github.io',
-  base: '/extensao-servico-social-pnas',
+  site: 'https://extensao-pnas.github.io',
+  base: '/curso',
   compressHTML: true,
   prefetch: true,
   integrations: [react(), sitemap()],
