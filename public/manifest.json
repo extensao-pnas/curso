@@ -1,0 +1,17 @@
+{
+  "name": "Curso de Extensão SUAS 2026",
+  "short_name": "SUAS 2026",
+  "description": "O Trabalho de Assistentes Sociais no Âmbito do SUAS — Curso de Extensão 2026",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f1eb",
+  "theme_color": "#0b1e3d",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "lang": "pt-BR"
+}

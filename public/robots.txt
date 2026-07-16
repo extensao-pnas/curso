@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jcgoulart.github.io/extensao-servico-social-pnas/sitemap-index.xml
