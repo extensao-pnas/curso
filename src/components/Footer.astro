@@ -1,0 +1,31 @@
+---
+import { courseData } from '../data/course-data';
+---
+
+<footer
+  class="border-t border-black/5 py-8 md:py-10 animate-fade-in motion-reduce:animate-none motion-reduce:opacity-100"
+>
+  <div class="max-w-6xl mx-auto px-4 md:px-8">
+    <!-- Partner logos row -->
+    <div class="flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-6">
+      {
+        courseData.partners.map((partner) => (
+          <img
+            src={`/${partner.logo}`}
+            alt={partner.name}
+            height="40"
+            width="120"
+            class="h-8 md:h-10 w-auto object-contain grayscale-[0.3]"
+            decoding="async"
+            loading="lazy"
+          />
+        ))
+      }
+    </div>
+
+    <!-- Copyright -->
+    <p class="text-xs text-gray-light text-center">
+      &copy; 2026 Curso de Extens&atilde;o &mdash; Todos os direitos reservados
+    </p>
+  </div>
+</footer>

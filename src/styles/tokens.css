@@ -1,0 +1,113 @@
+/* ═══════════════════════════════════════════════════
+   Design Tokens — extracted from versao_e.html
+   Curso de Extensão 2026 — Assistência Social SUAS
+   ═══════════════════════════════════════════════════ */
+
+/* ── CSS Custom Properties (for non-Tailwind consumers) ── */
+:root {
+  /* Primary palette */
+  --color-navy: #0b1e3d;
+  --color-navy-dark: #153264;
+  --color-gold: #c9a84c;
+  --color-gold-light: #d4b65f;
+  --color-gold-dark: #bf9a35;
+  --color-burgundy: #8b1e34;
+  --color-cream: #f5f1eb;
+  --color-white: #ffffff;
+
+  /* Neutral grays */
+  --color-gray: #6b7280;
+  --color-gray-light: #9ca3af;
+  --color-gray-dark: #374151;
+  --color-gray-mid: #1f2937;
+  --color-gray-neutral: #d1d5db;
+
+  /* Semantic / derived */
+  --color-gold-dark-text: #8a7310;
+  --color-navy-faded: rgba(11, 30, 61, 0.45);
+  --color-navy-divider: rgba(11, 30, 61, 0.1);
+  --color-border-light: rgba(0, 0, 0, 0.04);
+  --color-border-medium: rgba(0, 0, 0, 0.05);
+
+  /* Gradient preset (use as var(--gold-gradient)) */
+  --gold-gradient: linear-gradient(135deg, #c9a84c 0%, #d4b65f 50%, #bf9a35 100%);
+
+  /* Typography */
+  --font-heading: 'Merriweather', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+/* ── Tailwind v4 @theme ── */
+@theme {
+  /* Primary palette */
+  --color-navy: #0b1e3d;
+  --color-navy-dark: #153264;
+  --color-gold: #c9a84c;
+  --color-gold-light: #d4b65f;
+  --color-gold-dark: #bf9a35;
+  --color-burgundy: #8b1e34;
+  --color-cream: #f5f1eb;
+  --color-white: #ffffff;
+
+  /* Neutral grays */
+  --color-gray: #6b7280;
+  --color-gray-light: #9ca3af;
+  --color-gray-dark: #374151;
+  --color-gray-mid: #1f2937;
+  --color-gray-neutral: #d1d5db;
+
+  /* Semantic / derived */
+  --color-gold-dark-text: #8a7310;
+
+  /* Typography */
+  --font-heading: 'Merriweather', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+/* ── Dark mode: system preference OR manual override ── */
+/* System dark preference → only applies when NO manual override is set */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-cream: #1a1f2e;
+    --color-white: #1e2537;
+    --color-navy: #c9d1d9;
+    --color-navy-dark: #e5e7eb;
+    --color-gray: #9ca3af;
+    --color-gray-dark: #d1d5db;
+    --color-gray-light: #6b7280;
+    --color-gray-mid: #e5e7eb;
+    --color-gray-neutral: #374151;
+    --color-border-light: rgba(255, 255, 255, 0.06);
+    --color-border-medium: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* Manual dark override */
+:root[data-theme="dark"] {
+  --color-cream: #1a1f2e;
+  --color-white: #1e2537;
+  --color-navy: #c9d1d9;
+  --color-navy-dark: #e5e7eb;
+  --color-gray: #9ca3af;
+  --color-gray-dark: #d1d5db;
+  --color-gray-light: #6b7280;
+  --color-gray-mid: #e5e7eb;
+  --color-gray-neutral: #374151;
+  --color-border-light: rgba(255, 255, 255, 0.06);
+  --color-border-medium: rgba(255, 255, 255, 0.08);
+}
+
+/* Manual light override (trumps system dark preference) */
+:root[data-theme="light"] {
+  --color-cream: #f5f1eb;
+  --color-white: #ffffff;
+  --color-navy: #0b1e3d;
+  --color-navy-dark: #153264;
+  --color-gray: #6b7280;
+  --color-gray-dark: #374151;
+  --color-gray-light: #9ca3af;
+  --color-gray-mid: #1f2937;
+  --color-gray-neutral: #d1d5db;
+  --color-border-light: rgba(0, 0, 0, 0.04);
+  --color-border-medium: rgba(0, 0, 0, 0.05);
+}

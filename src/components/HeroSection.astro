@@ -1,0 +1,77 @@
+---
+import { courseData } from '../data/course-data';
+
+// Parse subtitle: "O Trabalho...: Formação, Prática..."
+const colonIdx = courseData.subtitle.indexOf(': ');
+const heroTitle =
+  colonIdx > 0
+    ? courseData.subtitle.slice(0, colonIdx).trim()
+    : courseData.subtitle;
+const heroSubtitle =
+  colonIdx > 0 ? courseData.subtitle.slice(colonIdx + 2).trim() : '';
+
+// Extract year from "CURSO DE EXTENSÃO 2026"
+const yearMatch = courseData.title.match(/(\d{4})/);
+const yearBadge = yearMatch ? yearMatch[1] : '2026';
+
+// UI label derived from course title, preserved as-is from the data
+const tagLabel = courseData.title.replace(/\s*\d{4}\s*$/, '').trim();
+---
+
+<section
+  class="relative overflow-hidden py-16 md:py-24"
+  aria-labelledby="hero-heading"
+>
+  <!-- ── Decorative geometric circles (matching versao_e.html aesthetic) ── -->
+  <div aria-hidden="true">
+    <!-- Large navy circle, top right -->
+    <div
+      class="absolute -top-32 -right-20 w-[28rem] h-[28rem] rounded-full border border-navy/5 opacity-[0.03] pointer-events-none"
+    ></div>
+    <!-- Large gold circle, bottom left -->
+    <div
+      class="absolute -bottom-24 -left-16 w-80 h-80 rounded-full bg-gold opacity-[0.04] pointer-events-none"
+    ></div>
+    <!-- Small navy circle, mid right -->
+    <div
+      class="absolute top-1/2 -right-8 w-48 h-48 rounded-full border border-navy/10 opacity-[0.02] pointer-events-none"
+    ></div>
+  </div>
+
+  <!-- ── Content ── -->
+  <div class="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
+    <!-- Header accent row -->
+    <div class="flex items-center justify-between mb-6 md:mb-8 animate-fade-in-up motion-reduce:animate-none motion-reduce:opacity-100">
+      <!-- Tag: "CURSO DE EXTENSÃO" with gold dot -->
+      <div class="inline-flex items-center gap-2">
+        <span class="w-[5px] h-[5px] rounded-full bg-gold inline-block shrink-0" aria-hidden="true">
+        </span>
+        <span
+          class="text-[10px] md:text-xs font-bold tracking-[0.15em] uppercase text-burgundy"
+        >
+          {tagLabel}
+        </span>
+      </div>
+
+      <!-- Year badge: "2026" -->
+      <span
+        class="text-3xl md:text-4xl lg:text-5xl font-black text-navy font-heading leading-none"
+      >
+        {yearBadge}
+      </span>
+    </div>
+
+    <!-- Main title -->
+    <h1
+      id="hero-heading"
+      class="font-heading font-black text-3xl md:text-5xl lg:text-6xl text-navy tracking-tight leading-tight animate-fade-in-up animate-delay-200 motion-reduce:animate-none motion-reduce:opacity-100"
+    >
+      {heroTitle}
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-sm md:text-base text-gray mt-3 md:mt-4 font-medium animate-fade-in-up animate-delay-400 motion-reduce:animate-none motion-reduce:opacity-100">
+      {heroSubtitle}
+    </p>
+  </div>
+</section>

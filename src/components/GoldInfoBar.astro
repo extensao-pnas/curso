@@ -1,0 +1,48 @@
+---
+import { courseData } from '../data/course-data';
+
+const periodDisplay =
+  `${courseData.period.start.replace(/\/\d{4}$/, '')} a ${courseData.period.end.replace(/\/\d{4}$/, '')}`;
+const scheduleSmall = `${courseData.schedule.format} · ${courseData.schedule.workload.replace(' horas', 'h')}`;
+const vacanciesSmall = `${courseData.vacancies.professional} profissionais + ${courseData.vacancies.student} discentes`;
+---
+
+<section aria-labelledby="gold-info-bar-heading" class="max-w-6xl mx-auto px-4 md:px-8">
+  <h2 id="gold-info-bar-heading" class="sr-only">Informações do Curso</h2>
+  <div
+    class="rounded-lg flex flex-col md:flex-row md:items-center px-6 py-4 md:px-8 md:py-5 animate-fade-in-up animate-delay-200 motion-reduce:animate-none motion-reduce:opacity-100"
+    style="background: linear-gradient(135deg, #c9a84c 0%, #d4b65f 50%, #bf9a35 100%);"
+  >
+    <!-- Column 1: Período -->
+    <div class="flex-1 py-1">
+      <div class="text-xs font-bold tracking-widest uppercase text-navy/45">Período</div>
+      <div class="font-heading font-black text-lg md:text-xl text-navy leading-tight">
+        {periodDisplay}<small class="font-sans text-xs font-semibold ml-1 opacity-50">{courseData.period.day}</small>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="hidden md:block border-l border-navy/10 h-[30px]"></div>
+    <div class="block md:hidden w-full border-t border-navy/10 my-2"></div>
+
+    <!-- Column 2: Horário · Formato -->
+    <div class="flex-1 py-1">
+      <div class="text-xs font-bold tracking-widest uppercase text-navy/45">Horário · Formato</div>
+      <div class="font-heading font-black text-lg md:text-xl text-navy leading-tight">
+        {courseData.schedule.time}<small class="font-sans text-xs font-semibold ml-1 opacity-50">{scheduleSmall}</small>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="hidden md:block border-l border-navy/10 h-[30px]"></div>
+    <div class="block md:hidden w-full border-t border-navy/10 my-2"></div>
+
+    <!-- Column 3: Vagas -->
+    <div class="flex-1 py-1">
+      <div class="text-xs font-bold tracking-widest uppercase text-navy/45">Vagas</div>
+      <div class="font-heading font-black text-lg md:text-xl text-navy leading-tight">
+        {courseData.vacancies.total}<small class="font-sans text-xs font-semibold ml-1 opacity-50">{vacanciesSmall}</small>
+      </div>
+    </div>
+  </div>
+</section>

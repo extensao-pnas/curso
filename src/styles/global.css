@@ -1,0 +1,127 @@
+@import "./tokens.css";
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════
+   Base
+   ═══════════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ═══════════════════════════════════════════════
+   Animation Keyframes
+   ═══════════════════════════════════════════════ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes subtleScale {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   Animation Utility Classes
+   ═══════════════════════════════════════════════ */
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-subtle-scale {
+  animation: subtleScale 0.5s ease-out forwards;
+}
+
+/* Staggered delay classes */
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
+.animate-delay-600 { animation-delay: 600ms; }
+.animate-delay-800 { animation-delay: 800ms; }
+
+/* Initially invisible — animation will make it visible via `forwards` fill */
+.animate-fade-in-up,
+.animate-fade-in,
+.animate-subtle-scale {
+  opacity: 0;
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-fade-in,
+  .animate-subtle-scale {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   Global Hover / Transition Enhancements
+   ═══════════════════════════════════════════════ */
+
+/* Smooth transitions on interactive elements */
+a, button, .hover-lift {
+  transition: color 200ms ease, background-color 200ms ease, transform 300ms ease, box-shadow 200ms ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(11, 30, 61, 0.08);
+}
+
+/* Card surface hover */
+.card-hover {
+  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(11, 30, 61, 0.1);
+}
+
+/* ═══════════════════════════════════════════════
+   Focus Visible
+   ═══════════════════════════════════════════════ */
+
+*:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}

@@ -1,0 +1,170 @@
+---
+import '../styles/global.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/inter/800.css';
+import '@fontsource/inter/900.css';
+import '@fontsource/merriweather/700.css';
+import '@fontsource/merriweather/900.css';
+import { ClientRouter } from 'astro:transitions';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
+const siteTitle = 'Curso de Extensão SUAS 2026 — O Trabalho de Assistentes Sociais';
+const ogTitle = title || siteTitle;
+const ogDescription =
+  description ||
+  'Curso de extensão universitária sobre o trabalho de assistentes sociais no âmbito do Sistema Único de Assistência Social (SUAS). Formação continuada para profissionais e estudantes de Serviço Social.';
+const canonicalUrl = new URL(Astro.url.pathname, Astro.url.origin).href;
+const ogImageUrl = new URL('/favicon.svg', Astro.url.origin).href;
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{ogTitle}</title>
+    {description && <meta name="description" content={description} />}
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="32" />
+    <meta property="og:image:height" content="32" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Curso de Extensão SUAS 2026" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- JSON-LD Structured Data -->
+    <Fragment>
+      <script type="application/ld+json" is:inline>
+        {
+          "@context": "https://schema.org",
+          "@type": "Course",
+          "name": "O Trabalho de Assistentes Sociais no Âmbito do SUAS",
+          "description": "Curso de extensão universitária sobre o trabalho de assistentes sociais no âmbito do Sistema Único de Assistência Social (SUAS).",
+          "provider": { "@type": "Organization", "name": "Universidade" },
+          "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "Online",
+            "startDate": "2026-08-06",
+            "endDate": "2026-12-10",
+            "inLanguage": "pt-BR",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" }
+          }
+        }
+      </script>
+    </Fragment>
+
+    <!-- View Transitions -->
+    <ClientRouter />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0b1e3d" />
+
+    <slot name="head" />
+  </head>
+  <body class="bg-cream text-navy font-sans">
+    <!-- Skip-to-content link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[100] focus:bg-gold focus:text-navy focus:font-bold focus:px-4 focus:py-2 focus:rounded">Pular para o conteúdo</a>
+
+    <!-- Decorative top gradient bar: navy → gold → burgundy -->
+    <div
+      class="fixed top-0 left-0 right-0 z-50 h-1"
+      style="background: linear-gradient(90deg, #0b1e3d 0%, #153264 30%, #c9a84c 70%, #8b1e34 100%);"
+    ></div>
+
+    <main id="main-content" class="min-h-screen" transition:animate="fade">
+      <slot />
+    </main>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
+
+    <!-- Theme toggle button -->
+    <button
+      id="theme-toggle"
+      class="fixed bottom-6 right-6 z-50 w-10 h-10 rounded-full bg-white dark:bg-navy shadow-lg border border-gray-neutral flex items-center justify-center hover:scale-110 transition-transform duration-200 cursor-pointer"
+      aria-label="Alternar tema claro/escuro"
+      title="Alternar tema"
+    >
+      <!-- Sun icon (shown in dark mode) -->
+      <svg id="theme-icon-sun" class="w-5 h-5 text-gold hidden" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+      <!-- Moon icon (shown in light mode) -->
+      <svg id="theme-icon-moon" class="w-5 h-5 text-gold" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+    </button>
+
+    <script>
+      (function() {
+        const html = document.documentElement;
+        const toggle = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('theme-icon-sun');
+        const moonIcon = document.getElementById('theme-icon-moon');
+
+        if (!toggle || !sunIcon || !moonIcon) return;
+
+        function applyTheme(theme: string, sun: HTMLElement, moon: HTMLElement): void {
+          if (theme === 'dark') {
+            html.setAttribute('data-theme', 'dark');
+            sun.classList.remove('hidden');
+            moon.classList.add('hidden');
+          } else {
+            html.setAttribute('data-theme', 'light');
+            sun.classList.add('hidden');
+            moon.classList.remove('hidden');
+          }
+        }
+
+        // Initialize from localStorage or system preference
+        const saved = localStorage.getItem('theme');
+        if (saved) {
+          applyTheme(saved, sunIcon, moonIcon);
+        } else {
+          // Use system preference: if dark mode preferred, apply dark
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          applyTheme(prefersDark ? 'dark' : 'light', sunIcon, moonIcon);
+        }
+
+        // Toggle on click
+        toggle.addEventListener('click', () => {
+          const current = html.getAttribute('data-theme');
+          const next = current === 'dark' ? 'light' : 'dark';
+          applyTheme(next, sunIcon, moonIcon);
+          localStorage.setItem('theme', next);
+        });
+      })();
+    </script>
+  </body>
+</html>

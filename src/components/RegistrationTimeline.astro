@@ -1,0 +1,141 @@
+---
+import { courseData } from '../data/course-data';
+
+interface TimelineStep {
+  number: number;
+  title: string;
+  dateText: string;
+  status: 'completed' | 'active' | 'upcoming';
+  note?: string;
+}
+
+function parseDate(str: string): Date {
+  const [d, m, y] = str.split('/').map(Number);
+  return new Date(Date.UTC(y, m - 1, d));
+}
+
+const now = new Date();
+
+function getStatus(startStr: string, endStr: string): 'completed' | 'active' | 'upcoming' {
+  const start = parseDate(startStr);
+  const end = parseDate(endStr);
+  if (now > end) return 'completed';
+  if (now >= start && now <= end) return 'active';
+  return 'upcoming';
+}
+
+const { registration } = courseData;
+
+const steps: TimelineStep[] = [
+  {
+    number: 1,
+    title: 'Divulgação',
+    dateText: `${registration.announcementStart} a ${registration.announcementEnd}`,
+    status: getStatus(registration.announcementStart, registration.announcementEnd),
+  },
+  {
+    number: 2,
+    title: 'Inscrição',
+    dateText: `${registration.registrationStart} a ${registration.registrationEnd}`,
+    status: getStatus(registration.registrationStart, registration.registrationEnd),
+  },
+  {
+    number: 3,
+    title: 'Resultado',
+    dateText: registration.resultDate,
+    status: now > parseDate(registration.resultDate) ? 'completed' : 'upcoming',
+    note: 'via e-mail',
+  },
+];
+
+let stepsCompleted = 0;
+for (const step of steps) {
+  if (step.status === 'completed') stepsCompleted++;
+  else if (step.status === 'active') stepsCompleted += 0.5;
+}
+const goldPercent = Math.round((stepsCompleted / steps.length) * 100);
+
+---
+<section aria-labelledby="registration-timeline-heading" class="max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-20">
+  <h2 id="registration-timeline-heading" class="font-heading font-black text-2xl md:text-3xl text-navy mb-10 animate-fade-in-up motion-reduce:animate-none motion-reduce:opacity-100">
+    Inscrições
+  </h2>
+
+  <div class="relative">
+    <!-- Connecting line: mobile (vertical, left-aligned) -->
+    <div
+      class="md:hidden absolute left-[18px] top-2 bottom-2 w-0.5"
+      style={`background: linear-gradient(to bottom, #c9a84c 0%, #c9a84c ${goldPercent}%, #d1d5db ${goldPercent}%, #d1d5db 100%);`}
+      aria-hidden="true"
+    ></div>
+
+    <!-- Connecting line: desktop (horizontal, top-aligned) -->
+    <div
+      class="hidden md:block absolute left-0 right-0 top-5 h-0.5"
+      style={`background: linear-gradient(to right, #c9a84c 0%, #c9a84c ${goldPercent}%, #d1d5db ${goldPercent}%, #d1d5db 100%);`}
+      aria-hidden="true"
+    ></div>
+
+    <!-- Steps -->
+    <div class="flex flex-col md:flex-row md:items-start md:justify-between
+                gap-10 md:gap-4">
+
+      {
+        steps.map((step) => {
+          const isActive = step.status === 'active';
+          const isUpcoming = step.status === 'upcoming';
+
+          const circleBg = isUpcoming ? 'bg-gray-neutral' : 'bg-gold';
+          const circleTextColor = isUpcoming ? 'text-gray' : 'text-navy';
+          const circleRing = isActive ? 'ring-4 ring-gold/30' : '';
+          const titleColor = isUpcoming
+            ? 'text-gray-dark'
+            : isActive
+              ? 'text-gold'
+              : 'text-navy';
+
+          return (
+            <div class="flex md:flex-col items-start gap-4 md:gap-0
+                        md:items-center md:text-center md:flex-1 relative">
+
+              <!-- Circle marker -->
+              <div
+                class={`relative z-10 flex-shrink-0
+                        w-9 h-9 md:w-10 md:h-10
+                        rounded-full flex items-center justify-center
+                        ${circleBg} ${circleRing}
+                        md:mb-5`}
+              >
+                <span class={`font-heading font-black text-sm md:text-base ${circleTextColor}`}>
+                  {step.number}
+                </span>
+              </div>
+
+              <!-- Text content -->
+              <div class="flex flex-col min-w-0">
+                <h3 class={`font-heading font-bold text-lg md:text-xl ${titleColor}`}>
+                  {step.title}
+                </h3>
+                <p class={`text-sm mt-1 ${isUpcoming ? 'text-gray-light' : 'text-gray'}`}>
+                  {step.dateText}
+                </p>
+                {step.note && (
+                  <p class="text-xs text-gray-light mt-0.5 italic">
+                    {step.note}
+                  </p>
+                )}
+                {isActive && (
+                  <span class="inline-block mt-2.5 bg-gold/15 text-gold
+                               text-xs font-semibold px-3 py-0.5 rounded-full
+                               md:self-center tracking-wide">
+                    Em andamento
+                  </span>
+                )}
+              </div>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import GoldInfoBar from '../components/GoldInfoBar.astro';
+import CTASection from '../components/CTASection.astro';
+import AboutSection from '../components/AboutSection.astro';
+import ScheduleSection from '../components/ScheduleSection';
+import SelectionCriteria from '../components/SelectionCriteria.astro';
+import RegistrationTimeline from '../components/RegistrationTimeline.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout
+  title="O Trabalho de Assistentes Sociais no Âmbito do SUAS — Curso de Extensão 2026"
+  description="Curso de extensão universitária sobre o trabalho de assistentes sociais no âmbito do Sistema Único de Assistência Social (SUAS). Formação continuada para profissionais e estudantes de Serviço Social."
+>
+  <HeroSection />
+  <GoldInfoBar />
+  <CTASection />
+  <AboutSection />
+  <ScheduleSection client:idle />
+  <SelectionCriteria />
+  <RegistrationTimeline />
+  <Footer />
+</BaseLayout>
