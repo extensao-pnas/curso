@@ -38,7 +38,7 @@ export interface Lesson {
 export const courseData: CourseData = {
   title: "CURSO DE EXTENSÃO 2026",
   subtitle:
-    "O Trabalho de Assistentes Sociais no Âmbito do SUAS: Formação, Prática e Desafios Profissionais",
+    "O Trabalho de Assistentes Sociais no Âmbito do SUAS: Formação, prática e desafios profissionais",
   aboutText:
     "Curso de extensão voltado para assistentes sociais e estudantes de Serviço Social, " +
     "abordando a formação, a prática e os desafios profissionais no âmbito do Sistema Único " +
@@ -93,20 +93,23 @@ export const courseData: CourseData = {
             "A Política de Assistência Social como direito social no Brasil – marcos normativos e legais",
           professor: "Sindely Chahim de Avellar Alchorne",
           institution: "PUC-Rio",
+          lattes: "http://lattes.cnpq.br/7505898233930008",
         },
         {
           date: "20/08/2026",
           topic:
             "O desmonte do Sistema Único da Assistência Social: questões para o debate",
           professor: "Dra. Mônica Senna",
-          institution: "UFF",
+          institution: "PPG em Política Social da UFF",
+          lattes: "http://lattes.cnpq.br/6254529022390636",
         },
         {
           date: "27/08/2026",
           topic:
             "Financiamento e orçamento público da Política de Assistência Social brasileira",
-          professor: "Dr. Evilasio Salvador",
+          professor: "Dr. Evilasio da Silva Salvador",
           institution: "UNB",
+          lattes: "http://lattes.cnpq.br/9255679876512606",
         },
         {
           date: "03/09/2026",
@@ -122,6 +125,7 @@ export const courseData: CourseData = {
             "A reconfiguração do financiamento federal da assistência social a partir da crescente participação das emendas parlamentares",
           professor: "Ms. Patrícia Baptista Barreto",
           institution: "Fundação Leão XIII do Estado do RJ",
+          lattes: "https://lattes.cnpq.br/5027043885590886",
         },
         {
           date: "17/09/2026",
@@ -129,6 +133,7 @@ export const courseData: CourseData = {
             "Caracterização da força de trabalho no SUAS: expansão e precarização",
           professor: "Dra. Adriana de Andrade Mesquita",
           institution: "UFOP",
+          lattes: "http://lattes.cnpq.br/1322124989849187",
         },
       ],
     },
@@ -143,13 +148,14 @@ export const courseData: CourseData = {
           topic:
             "Território como ponto de partida para a Vigilância Socioassistencial",
           professor: "Dra. Viviane Pereira da Silva",
-          institution: "SMAS/RJ",
+          institution: "Secretaria Municipal de Assistência Social do Rio de Janeiro – SMAS/RJ",
         },
         {
           date: "01/10/2026",
           topic: "Indicadores Sociais e interpretação de dados sociais",
           professor: "Ms. Stephanie de Azevedo Barreto",
           institution: "SEDSODH RJ",
+          lattes: "http://lattes.cnpq.br/5610787369990437",
           linkedin: "https://www.linkedin.com/in/stephanie-barreto-85085a119/",
         },
         {
@@ -158,13 +164,14 @@ export const courseData: CourseData = {
             "O Cadastro Único como base de dados para análise social",
           professor: "Ms. Stephanie de Azevedo Barreto",
           institution: "SEDSODH RJ",
+          lattes: "http://lattes.cnpq.br/5610787369990437",
           linkedin: "https://www.linkedin.com/in/stephanie-barreto-85085a119/",
         },
         {
           date: "15/10/2026",
           topic: "Laboratório de dados do Cadastro Único",
           professor: "Junier Goulart",
-          institution: "SEDSODH/RJ",
+          institution: "Coordenação Estadual da Vigilância Socioassistencial do RJ",
           lattes: "http://lattes.cnpq.br/8140596402232024",
           linkedin: "https://www.linkedin.com/in/junier-goulart",
         },
@@ -180,15 +187,17 @@ export const courseData: CourseData = {
           date: "22/10/2026",
           topic:
             "A matricialidade sociofamiliar na Política de Assistência Social brasileira",
-          professor: "Dra. Cassia Carloto",
+          professor: "Dra. Cassia Maria Carloto",
           institution: "UEL",
+          lattes: "http://lattes.cnpq.br/6962057467940007",
         },
         {
           date: "29/10/2026",
           topic:
             "A importância dos Conselhos de Direitos no SUAS",
-          professor: "Dra. Heloísa Mesquita",
+          professor: "Dra. Heloisa Helena Mesquita Maciel",
           institution: "",
+          lattes: "http://lattes.cnpq.br/0136027334010332",
         },
         {
           date: "05/11/2026",
@@ -196,33 +205,37 @@ export const courseData: CourseData = {
             "Masculinidades negras e a Política Nacional de Assistência Social no Brasil",
           professor: "Dr. Daniel de Souza Campos",
           institution: "IFF/Fiocruz",
+          lattes: "http://lattes.cnpq.br/4091130405456857",
         },
         {
           date: "12/11/2026",
           topic:
             "Liberdade Religiosa, Racismo Religioso e prática profissional da/o assistente social",
-          professor: "Dra. Josélia Reis",
-          institution: "JFRJ",
+          professor: "Dra. Josélia Ferreira dos Reis",
+          institution: "Analista Judiciária da Justiça Federal do Estado do Rio de Janeiro – JFRJ",
+          lattes: "http://lattes.cnpq.br/8735695803403957",
         },
         {
           date: "19/11/2026",
           topic:
             "A responsabilidade técnica e a ética de Assistentes Sociais na elaboração de documentos",
           professor: "Denise Cunha",
-          institution: "CRESS MG",
+          institution: "Assessora em S.S. do CRESS MG",
         },
         {
           date: "26/11/2026",
           topic:
             "O trabalho do assistente social na gestão do Programa Bolsa Família: integração entre benefícios, serviços e garantia de direitos",
           professor: "Nadia Nunes",
-          institution: "SEDSODH",
+          institution: "Coordenadora do Cadastro Único e Bolsa Família – SEDSODH",
+          lattes: "http://lattes.cnpq.br/1907019132505681",
         },
         {
           date: "03/12/2026",
           topic: "Aula de encerramento",
           professor: "Dra. Luziele Maria de Souza Tapajós",
-          institution: "UFSC",
+          institution: "Professora aposentada da UFSC",
+          lattes: "http://lattes.cnpq.br/5369814574689289",
         },
       ],
     },
