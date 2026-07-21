@@ -242,7 +242,7 @@ export const courseData: CourseData = {
   ],
 
   criteria: [
-    "Formação em Serviço Social, com graduação em curso reconhecido pelo MEC e registro ativo no CRESS",
+    "Formação em Serviço Social, com graduação em curso reconhecido pelo MEC",
     "Discentes de graduação em Serviço Social a partir do 5º período com inserção em campo de estágio em alguma unidade de atendimento do SUAS",
     "Estudantes de pós-graduação (stricto e lato sensu) com inserção em espaços sócio-ocupacionais",
     "Assistentes sociais vinculados a alguma unidade de atendimento do SUAS",
