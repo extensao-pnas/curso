@@ -68,7 +68,7 @@ export const courseData: CourseData = {
   registration: {
     announcementStart: "22/07/2026",
     announcementEnd: "31/07/2026",
-    registrationStart: "20/07/2026",
+    registrationStart: "22/07/2026",
     registrationEnd: "31/07/2026",
     resultDate: "03/08/2026",
     link: "#inscricao",

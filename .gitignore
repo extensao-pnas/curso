@@ -28,3 +28,11 @@ __pycache__/
 
 # Lock files
 .~lock.*
+
+# Internal tools
+.codegraph
+.omo/
+.reasonix/
+
+# Playwright
+test-results/
