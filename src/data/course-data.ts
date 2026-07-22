@@ -66,7 +66,7 @@ export const courseData: CourseData = {
   },
 
   registration: {
-    announcementStart: "16/07/2026",
+    announcementStart: "22/07/2026",
     announcementEnd: "31/07/2026",
     registrationStart: "20/07/2026",
     registrationEnd: "31/07/2026",
@@ -107,8 +107,8 @@ export const courseData: CourseData = {
           date: "27/08/2026",
           topic:
             "Financiamento e orçamento público da Política de Assistência Social brasileira",
-          professor: "Dr. Evilasio da Silva Salvador",
-          institution: "UNB",
+          professor: "",
+          institution: "",
           lattes: "http://lattes.cnpq.br/9255679876512606",
         },
         {
