@@ -107,8 +107,8 @@ export const courseData: CourseData = {
           date: "27/08/2026",
           topic:
             "Financiamento e orçamento público da Política de Assistência Social brasileira",
-          professor: "",
-          institution: "",
+          professor: "Dr. Evilasio da Silva Salvador",
+          institution: "UNB",
           lattes: "http://lattes.cnpq.br/9255679876512606",
         },
         {
