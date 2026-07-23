@@ -247,6 +247,7 @@ export const courseData: CourseData = {
     "Estudantes de pós-graduação (stricto e lato sensu) com inserção em espaços sócio-ocupacionais",
     "Assistentes sociais vinculados a alguma unidade de atendimento do SUAS",
     "Interesse em construir ações e práticas em matéria do Serviço Social qualificadas e comprometidas com os direitos socioassistenciais",
+    "Ser residente nos municípios de Niterói ou Rio de Janeiro (RJ), ou Mariana ou Ouro Preto (MG)",
   ],
 
   partners: [
